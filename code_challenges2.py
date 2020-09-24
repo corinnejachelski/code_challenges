@@ -8,16 +8,14 @@
 # "abcaaqwerty" -> "qwerty"
 
 def longest_substring(string):
-    
-    seen = set()
+
     output = []
     curr_str = ""
 
     
     for char in string:
-        if char not in seen:
+        if char not in set(curr_str):
             curr_str += char
-            seen.add(char)
         else:
             output.append(curr_str)
             curr_str = char
