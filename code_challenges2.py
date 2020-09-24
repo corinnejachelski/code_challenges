@@ -44,8 +44,10 @@ assert longest_substring("abcabcdef") == "abcdef"
 #given 2 lists [1, 2, 3], [4, 7] return a list of total sum (123 + 47 = 170) [1, 7, 0]
 # [ 1, 1, 6] [3, 3] = [1,4,9]
 
-#[1, 2, 3]
+#[1, 2, 7]
 #   [4, 7]
+#14
+#4
 
 def sum_lists(a, b):
 
@@ -55,12 +57,9 @@ def sum_lists(a, b):
     while a or b:
         if a and b:
             check_sum += a[-1] + b[-1]
-            if check_sum == 10:
-                final_sum.append(0)
+            if check_sum >= 10:
+                final_sum.append(check_sum - 10)
                 check_sum = 1
-            elif check_sum > 10:
-                final_sum.append(0)
-                check_sum = check_sum - 10
             else:
                 final_sum.append(check_sum)
                 check_sum = 0
@@ -74,10 +73,12 @@ def sum_lists(a, b):
             a = []
 
     final_sum.reverse()
+    print(final_sum)
     return final_sum
 
-assert sum_lists([1, 2, 3], [4, 7]) == [1, 7, 0]
-assert sum_lists([1, 1, 6], [3, 3]) == [1, 4, 9]
+assert sum_lists([1, 2, 7], [4, 7]) == [1, 7, 4]
+assert sum_lists([1, 1, 6,], [3, 3]) == [1, 4, 9]
+assert sum_lists([1, 1, 6, 0], [3, 3]) == [1, 1, 9, 3]
             
             
             
