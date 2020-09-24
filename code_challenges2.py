@@ -40,7 +40,44 @@ assert longest_substring("aA") == "aA"
 assert longest_substring("aa") == "a"
 assert longest_substring("abcabcdef") == "abcdef"  
 
-            
+##############################################################################
+#given 2 lists [1, 2, 3], [4, 7] return a list of total sum (123 + 47 = 170) [1, 7, 0]
+# [ 1, 1, 6] [3, 3] = [1,4,9]
+
+#[1, 2, 3]
+#   [4, 7]
+
+def sum_lists(a, b):
+
+    final_sum = []
+    check_sum = 0
+
+    while a or b:
+        if a and b:
+            check_sum += a[-1] + b[-1]
+            if check_sum == 10:
+                final_sum.append(0)
+                check_sum = 1
+            elif check_sum > 10:
+                final_sum.append(0)
+                check_sum = check_sum - 10
+            else:
+                final_sum.append(check_sum)
+                check_sum = 0
+            a.pop()
+            b.pop()
+        elif b:
+            final_sum.extend(b)
+            b = []
+        else: 
+            final_sum.extend(a)
+            a = []
+
+    final_sum.reverse()
+    return final_sum
+
+assert sum_lists([1, 2, 3], [4, 7]) == [1, 7, 0]
+assert sum_lists([1, 1, 6], [3, 3]) == [1, 4, 9]
             
             
             
