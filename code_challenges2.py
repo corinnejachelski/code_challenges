@@ -78,4 +78,43 @@ def sum_lists(a, b):
 assert sum_lists([1, 2, 7], [4, 7]) == [1, 7, 4]
 assert sum_lists([1, 1, 6,], [3, 3]) == [1, 4, 9]
 assert sum_lists([1, 1, 6, 0], [3, 3]) == [1, 1, 9, 3]
-            
+###############################################################################
+#Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+def diagonalDifference(arr):
+
+    row = 0
+    col = 0
+    d1 = 0
+    d2 = 0
+
+    #get first diagonal
+    while row <= len(arr) - 1:
+        d1 += arr[row][col]
+        row += 1
+        col += 1
+
+    row = 0
+    col = -1
+
+    #get second diagonal
+    while row <= len(arr) - 1:
+        d2 += arr[row][col]
+        row += 1
+        col -= 1
+
+    return abs(d1 - d2)
+###############################################################################
+#Given a time in 12-hour AM/PM format (hh:mm:ssAM/PM), convert it to military (24-hour) time.
+
+def timeConversion(s):
+
+    pm = 0
+    
+    if s[-2:] == "PM" and s[0:2] != "12":
+        pm = int(s[0:2]) + 12
+        return str(pm) + s[2:-2]
+    elif s[-2:] == "AM" and s[0:2] == "12":
+        return "00" + s[2:-2]
+    else:
+        return s[:-2]
