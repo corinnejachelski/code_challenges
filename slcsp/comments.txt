@@ -1,0 +1,3 @@
+To run my code, have a version of Python 3 installed and run "python3 slcsp.py" in the terminal
+
+To get the output as a csv, run "python3 slscp.py > output.csv"

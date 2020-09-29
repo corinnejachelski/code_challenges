@@ -73,12 +73,9 @@ def sum_lists(a, b):
             a = []
 
     final_sum.reverse()
-    print(final_sum)
     return final_sum
 
 assert sum_lists([1, 2, 7], [4, 7]) == [1, 7, 4]
 assert sum_lists([1, 1, 6,], [3, 3]) == [1, 4, 9]
 assert sum_lists([1, 1, 6, 0], [3, 3]) == [1, 1, 9, 3]
-            
-            
             
