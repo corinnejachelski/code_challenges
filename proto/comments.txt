@@ -1,0 +1,3 @@
+To run my code, have a version of Python 3 installed and run "python3 parse_file.py" in the terminal
+
+If you would like to parse a different log file in the same format, change the parse_log(file) input in line 49
